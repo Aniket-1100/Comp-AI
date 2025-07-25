@@ -67,7 +67,7 @@ export const MainLayout = ({ user, onSignOut }: MainLayoutProps) => {
 
     try {
       // Call backend Cohere AI endpoint
-      const res = await fetch('http://localhost:5000/api/cohere/generate', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/cohere/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: content, jsx: jsxCode }),
