@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS for frontend URL
 const allowedOrigins = [
   'http://localhost:8081',
-  'https://comp-ai-irq8.vercel.app/login',
+  'https://comp-ai-irq8.vercel.app',
 ];
 
 app.use(cors({
