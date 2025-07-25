@@ -15,7 +15,7 @@ export const useAuth = () => {
     const fetchUser = async () => {
       setLoading(true)
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
           credentials: 'include',
         })
         if (res.ok) {
