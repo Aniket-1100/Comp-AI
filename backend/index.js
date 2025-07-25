@@ -5,7 +5,6 @@ const session = require('express-session');
 const cors = require('cors');
 const axios = require('axios');
 const { createClient } = require('redis');
-const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,7 +25,6 @@ app.use(cors({
   },
   credentials: true,
 }));
-
 
 app.use(express.json());
 
@@ -106,14 +104,6 @@ redisClient.connect().catch(err => {
     }
   });
 
-  // Serve frontend (React build)
-  app.use(express.static(path.join(__dirname, 'public')));
-
-  // Handle SPA routes (non-API)
-  app.get(/^\/(?!api).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  });
-
-  // Start server
+  // Start server (No frontend handling)
   app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 })();
